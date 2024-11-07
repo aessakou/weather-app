@@ -28,21 +28,27 @@ function StatisCapsule({index, value}){
                   "006-sunset.png", "007-sunrise.png", "008-rainy.png"];
   let imgsrc = "/Flaticon/png/" + iconsrc[index];
   return (
-    <Col className="m-1 p-4 rounded box bg-secondary d-flex align-items-start">
-      <Image
-        src={imgsrc}
-        alt=""
-        width={50}
-        height={50}
-      />
-      <span className="m-auto">{value}</span>
+    <Col md={6} lg={12} xxl={6}>
+      <Row className="g-1 mt-2 p-1 pt-3 pb-3 rounded bg-secondary align-items-center">
+        <Col xs={6} className="d-flex align-items-center justify-content-evenly">
+          <Image
+            src={imgsrc}
+            alt=""
+            width={50}
+            height={50}
+            />
+          <span className="">Visibility</span>
+        </Col>
+        <Col xs={6} className="text-center">
+          <span className="">{value}</span>
+        </Col>
+      </Row>
     </Col>
   );
 }
 
 function PrimarycompTmp(){
   return(
-    <>
     <Row className="box text-center p-4">
       <Col className="m-auto">
         <div className="d-flex justify-content-evenly m-auto">
@@ -69,24 +75,23 @@ function PrimarycompTmp(){
         <h1 className={`${styles.cityname} col-md-12 mt-4`}>Clear</h1>
       </Col>
     </Row>
-    </>
   );
 }
 
 function PrimarycompSts(){
   return (
-    <div className="box text-center p-4">
+    <div className="pt-2 pb-3">
         <Row className="">
-          <StatisCapsule index="1" value="Heloo"/>
-          <StatisCapsule index="2" value="Heldfgdjfoo"/>
+          <StatisCapsule index="1" value="15.6km"/>
+          <StatisCapsule index="2" value="15.6km"/>
         </Row>
         <Row className="">
-          <StatisCapsule index="3" value="Heloddo"/>
-          <StatisCapsule index="4" value="Heloo"/>
+          <StatisCapsule index="3" value="15.6km"/>
+          <StatisCapsule index="4" value="15.6km"/>
         </Row>
         <Row className="">
-          <StatisCapsule index="5" value="Heloo"/>
-          <StatisCapsule index="6" value="Heloo"/>
+          <StatisCapsule index="5" value="15.6km"/>
+          <StatisCapsule index="6" value="15.6km"/>
         </Row>
     </div>
   );
@@ -124,10 +129,10 @@ function Primarycomp(){
         </Col>
       </Row>
       <Row>
-          <Col md={12} lg={7} className="mb-4">
+          <Col md={12} lg={6} className="mb-4">
               <PrimarycompTmp />
           </Col>
-          <Col md={12} lg={5} className="m-auto">
+          <Col md={12} lg={6} className="m-auto">
               <PrimarycompSts />
           </Col>
       </Row>

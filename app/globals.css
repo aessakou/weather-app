@@ -29,6 +29,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-size: 24px;
   overflow: hidden;
+  padding: 30px 0;
 }
 
 * {

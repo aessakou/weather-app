@@ -12,14 +12,32 @@ function Button({value}){
 }
 
 function Imageicons({weathercode, weatherstat}){
-  let imgsrc = "/V2_icons/large/png/" + weathercode + "_" + weatherstat + "_large@2x.png";
+  let imgsrc = "/V2_icons/large/png/" + weathercode + "_" + weatherstat + "_large.png";
   return <Image
-        src={imgsrc}   // Path relative to the "public" folder
+        src={imgsrc}
         alt="WeatherCode"
-        width={200}               // Set the desired width in pixels
-        height={200}              // Set the desired height in pixels
+        width={200}
+        height={200}
         priority  
   />;
+}
+
+function StatisCapsule({index, value}){
+  let iconsrc = ["001-visibility.png", "002-wind-direction.png",
+                  "003-temperature.png", "004-windy.png", "005-humidity.png",
+                  "006-sunset.png", "007-sunrise.png", "008-rainy.png"];
+  let imgsrc = "/Flaticon/png/" + iconsrc[index];
+  return (
+    <Col className="m-1 p-4 rounded box bg-secondary d-flex align-items-start">
+      <Image
+        src={imgsrc}
+        alt=""
+        width={50}
+        height={50}
+      />
+      <span className="m-auto">{value}</span>
+    </Col>
+  );
 }
 
 function PrimarycompTmp(){
@@ -29,7 +47,7 @@ function PrimarycompTmp(){
       <Col className="m-auto">
         <div className="d-flex justify-content-evenly m-auto">
             <Image
-              src="/Flaticon/png/temperature.png"
+              src="/Flaticon/png/003-temperature.png"
               alt="Temperature"
               width={100}
               height={100}
@@ -55,6 +73,26 @@ function PrimarycompTmp(){
   );
 }
 
+function PrimarycompSts(){
+  return (
+    <div className="box text-center p-4">
+        <Row className="">
+          <StatisCapsule index="1" value="Heloo"/>
+          <StatisCapsule index="2" value="Heldfgdjfoo"/>
+        </Row>
+        <Row className="">
+          <StatisCapsule index="3" value="Heloddo"/>
+          <StatisCapsule index="4" value="Heloo"/>
+        </Row>
+        <Row className="">
+          <StatisCapsule index="5" value="Heloo"/>
+          <StatisCapsule index="6" value="Heloo"/>
+        </Row>
+    </div>
+  );
+}
+
+
 function Primarycomp(){
   const [city, setCity] = useState<string>("");
   const tokenipinfo = process.env.NEXT_PUBLIC_IPINFO_TOKEN;
@@ -78,8 +116,11 @@ function Primarycomp(){
   return (
     <div className={styles.primarycomp1}>
       <Row className="">
-        <Col md={12} className="text-center">
-          <h1 className={`${styles.cityname} col-md-6`}>{city}</h1>
+        <Col md={6} className="text-center">
+          <h1 className={`${styles.cityname}`}>{city}</h1>
+        </Col>
+        <Col md={6} className="text-center">
+          <h1 className={`${styles.cityname}`}>{city}</h1>
         </Col>
       </Row>
       <Row>
@@ -87,9 +128,7 @@ function Primarycomp(){
               <PrimarycompTmp />
           </Col>
           <Col md={12} lg={5} className="m-auto">
-              <div className="box bg-secondary text-center p-4">
-                  
-              </div>
+              <PrimarycompSts />
           </Col>
       </Row>
     </div>

@@ -22,6 +22,36 @@ function Imageicons({weathercode, weatherstat}){
   />;
 }
 
+function SearchBar(){
+  return (
+    <div className="col-md-12 d-flex justify-content-center">
+        <div className="col-md-1 m-2 mt-0 mb-0">
+          <button style={{all: "unset", cursor: "pointer", textShadow: "0 0 15px #fff" }}>
+              <Image
+                src={"/icons/locationblack.png"}
+                alt=""
+                width={50}
+                height={50}
+                priority
+              />
+          </button>
+        </div>
+        <div className=" col-md-10 col-lg-6 m-2 mt-0 mb-0  rounded-5 d-flex align-items-center overflow-hidden">
+          <input type="text" name="searchbar" className="bg-light w-100 h-100" style={{all: "unset", textShadow: "0 0 3px #00f" }}/>
+          <button className="bg-warning " style={{all: "unset", cursor: "pointer"}}>
+            <Image
+              src={"/icons/search_cr23.svg"}
+              alt=""
+              width={50}
+              height={50}
+              priority
+              />
+          </button>
+        </div>
+    </div>
+  );
+}
+
 function StatisCapsule({index, value}){
   let iconsrc = ["001-visibility.png", "002-wind-direction.png",
                   "003-temperature.png", "004-windy.png", "005-humidity.png",
@@ -120,12 +150,12 @@ function Primarycomp(){
   
   return (
     <div className={styles.primarycomp1}>
-      <Row className="">
+      <Row className="mt-3 mb-2">
         <Col md={6} className="text-center">
           <h1 className={`${styles.cityname}`}>{city}</h1>
         </Col>
         <Col md={6} className="text-center">
-          <h1 className={`${styles.cityname}`}>{city}</h1>
+          <SearchBar />
         </Col>
       </Row>
       <Row>
@@ -156,7 +186,9 @@ function Seconderycomp(){
         <Buttonscomp />
       </Col>
       <Col md={6} lg={2} className="mb-2 mt-2">
-        <div className={`${styles.square} card`}></div>
+        <div className={`${styles.square} card`}>
+
+        </div>
       </Col>
       <Col md={6} lg={2} className="mb-2 mt-2">
         <div className={`${styles.square} card`}></div>

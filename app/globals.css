@@ -20,6 +20,8 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
+  background-image: url('./../public/images/clouds.jpg');
+  background-size:cover;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,3 +56,4 @@ img {
     color-scheme: dark;
   }
 }
+

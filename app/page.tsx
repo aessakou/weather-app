@@ -11,13 +11,13 @@ function Button({value}){
   return <button className={`${styles.buttonscomp2} mb-3 mt-3`}>{value}</button>;
 }
 
-function Imageicons({weathercode, weatherstat}){
+function Imageicons({weathercode, weatherstat, x=200, y=200}){
   let imgsrc = "/V2_icons/large/png/" + weathercode + "_" + weatherstat + "_large.png";
   return <Image
         src={imgsrc}
         alt="WeatherCode"
-        width={200}
-        height={200}
+        width={x}
+        height={y}
         priority  
   />;
 }
@@ -36,7 +36,7 @@ function SearchBar(){
               />
           </button>
         </div>
-        <div className=" col-md-10 col-lg-6 m-2 mt-0 mb-0  rounded-5 d-flex align-items-center overflow-hidden">
+        <div className=" col-md-10 col-xl-10 col-xxl-6 m-2 mt-0 mb-0  rounded-4 d-flex align-items-center overflow-hidden">
           <input type="text" name="searchbar" className="bg-light w-100 h-100" style={{all: "unset", textShadow: "0 0 3px #00f" }}/>
           <button className="bg-warning " style={{all: "unset", cursor: "pointer"}}>
             <Image
@@ -173,8 +173,20 @@ function Primarycomp(){
 function Buttonscomp(){
   return (
     <div className="m-auto">
+      <h1 className="text-center">Forecast</h1>
       <Button value="Hourly"/>
       <Button value="Daily"/>
+    </div>
+  );
+}
+
+function ForecastCard(){
+  return (
+    <div className={`${styles.square} card`}>
+      <h2>Monday</h2>
+      <Imageicons weathercode="10000" weatherstat="clear" x={80} y={80}/>
+      <h2>Clear</h2>
+      <h3><span>18°C</span> / <span>28°C</span></h3>
     </div>
   );
 }
@@ -182,25 +194,23 @@ function Buttonscomp(){
 function Seconderycomp(){
   return (
     <Row className={styles.seconderycomp1}>
-      <Col md={6} lg={2} className={styles.buttonscomp1}>
+      <Col md={6} lg={4} xl={3} xxl={2} className={`${styles.buttonscomp1}`}>
         <Buttonscomp />
       </Col>
-      <Col md={6} lg={2} className="mb-2 mt-2">
-        <div className={`${styles.square} card`}>
-
-        </div>
+      <Col md={6} lg={4} xl={3} xxl={2} className="mb-2 mt-2">
+        <ForecastCard />
       </Col>
-      <Col md={6} lg={2} className="mb-2 mt-2">
-        <div className={`${styles.square} card`}></div>
+      <Col md={6} lg={4} xl={3} xxl={2} className="mb-2 mt-2">
+        <ForecastCard />
       </Col>
-      <Col md={6} lg={2} className="mb-2 mt-2">
-        <div className={`${styles.square} card`}></div>
+      <Col md={6} lg={4} xl={3} xxl={2} className="mb-2 mt-2">
+        <ForecastCard />
       </Col>
-      <Col md={6} lg={2} className="mb-2 mt-2">
-        <div className={`${styles.square} card`}></div>
+      <Col md={6} lg={4} xl={3} xxl={2} className="mb-2 mt-2">
+        <ForecastCard />
       </Col>
-      <Col md={6} lg={2} className="mb-2 mt-2">
-        <div className={`${styles.square} card`}></div>
+      <Col md={6} lg={4} xl={3} xxl={2} className="mb-2 mt-2">
+        <ForecastCard />
       </Col>
     </Row>
   );
